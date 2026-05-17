@@ -1,0 +1,37 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "WDW",
+        "GCG",
+        "PAP"
+    ],
+    "key": {
+        "W": {
+            "item": "botania:livingwood",
+            "data": 0
+        },
+        "D": {
+            "item": "botania:manaresource",
+            "data": 18
+        },
+        "G": {
+            "item": "botania:livingwood",
+            "data": 5
+        },
+        "C": {
+            "item": "packagedauto:me_package_component"
+        },
+        "P": {
+            "item": "botania:pylon",
+            "data": 1
+        },
+        "A": {
+            "item": "botania:alfheimportal",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "packaged_botania:alfheim_portal_crafter",
+        "count": 1
+    }
+}

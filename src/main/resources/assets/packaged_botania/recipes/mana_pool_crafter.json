@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "LWL",
+        "LCL",
+        "LPL"
+    ],
+    "key": {
+        "L": {
+            "item": "botania:livingrock",
+            "data": 0
+        },
+        "W": {
+            "item": "botania:livingrock0slab",
+            "data": 0
+        },
+        "C": {
+            "item": "packagedauto:me_package_component"
+        },
+        "P": {
+            "item": "botania:pool",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "packaged_botania:mana_pool_crafter",
+        "count": 1
+    }
+}

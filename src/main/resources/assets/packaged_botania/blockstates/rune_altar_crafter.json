@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "packaged_botania:runic_altar" }
+    }
+}

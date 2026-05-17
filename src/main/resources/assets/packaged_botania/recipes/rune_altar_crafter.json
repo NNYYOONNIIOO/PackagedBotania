@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "RWR",
+        "RCR",
+        "RAR"
+    ],
+    "key": {
+        "R": {
+            "item": "botania:livingrock",
+            "data": 1
+        },
+        "W": {
+            "item": "botania:twigwand",
+            "data": 0
+        },
+        "C": {
+            "item": "packagedauto:me_package_component"
+        },
+        "A": {
+            "item": "botania:runealtar",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "packaged_botania:rune_altar_crafter",
+        "count": 1
+    }
+}

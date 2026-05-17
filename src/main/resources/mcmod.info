@@ -1,0 +1,16 @@
+[
+{
+  "modid": "packaged_botania",
+  "name": "PackagedBotania",
+  "description": "封包植物魔法 - PackagedAuto与Botania的整合模组，添加封包魔力池、封包符文祭坛、封包泰拉凝聚板、封包花药台",
+  "version": "1.0",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["nyonio"],
+  "credits": "Thanks to Vazkii for Botania and to TheLMiffy1111 for PackagedAuto",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["required-after:botania;required-after:packagedauto;after:appliedenergistics2"]
+}
+]

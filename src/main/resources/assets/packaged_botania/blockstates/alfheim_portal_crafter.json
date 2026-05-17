@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "packaged_botania:alfheim_portal"
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "REM",
+        "SCN",
+        "LTL"
+    ],
+    "key": {
+        "R": {
+            "item": "botania:rune",
+            "data": 0
+        },
+        "E": {
+            "item": "botania:rune",
+            "data": 8
+        },
+        "M": {
+            "item": "botania:rune",
+            "data": 1
+        },
+        "S": {
+            "item": "botania:rune",
+            "data": 2
+        },
+        "C": {
+            "item": "packagedauto:me_package_component"
+        },
+        "N": {
+            "item": "botania:rune",
+            "data": 3
+        },
+        "L": {
+            "item": "minecraft:lapis_block",
+            "data": 0
+        },
+        "T": {
+            "item": "botania:terraplate",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "packaged_botania:terra_plate_crafter",
+        "count": 1
+    }
+}

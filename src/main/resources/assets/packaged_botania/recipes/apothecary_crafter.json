@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "COC",
+        "CMC",
+        "CAC"
+    ],
+    "key": {
+        "C": {
+            "item": "minecraft:cobblestone",
+            "data": 0
+        },
+        "O": {
+            "item": "botania:opencrate",
+            "data": 0
+        },
+        "M": {
+            "item": "packagedauto:me_package_component"
+        },
+        "A": {
+            "item": "botania:altar",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "packaged_botania:apothecary_crafter",
+        "count": 1
+    }
+}
