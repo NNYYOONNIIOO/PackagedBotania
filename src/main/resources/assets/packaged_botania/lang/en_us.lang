@@ -4,6 +4,7 @@ tile.packaged_botania.terra_plate_crafter.name=Packaged Terra Plate
 tile.packaged_botania.apothecary_crafter.name=Packaged Apothecary
 tile.packaged_botania.apothecary_crafter_part.name=Packaged Apothecary
 tile.packaged_botania.alfheim_portal_crafter.name=Packaged Alfheim Portal
+tile.packaged_botania.brewery_crafter.name=Packaged Brewery
 
 recipe.packaged_botania.mana_pool=Mana Pool
 recipe.packaged_botania.mana_pool.short=Mana Pool
@@ -15,5 +16,7 @@ recipe.packaged_botania.apothecary=Apothecary
 recipe.packaged_botania.apothecary.short=Apothecary
 recipe.packaged_botania.alfheim_portal=Alfheim Portal
 recipe.packaged_botania.alfheim_portal.short=Alfheim Portal
+recipe.packaged_botania.brewery=Brewery
+recipe.packaged_botania.brewery.short=Brewery
 
 itemGroup.packaged_botania=Packaged Botania

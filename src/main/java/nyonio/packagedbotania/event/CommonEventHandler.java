@@ -10,12 +10,14 @@ import nyonio.packagedbotania.PackagedBotania;
 import nyonio.packagedbotania.block.BlockAlfheimPortalCrafter;
 import nyonio.packagedbotania.block.BlockApothecaryCrafter;
 import nyonio.packagedbotania.block.BlockApothecaryCrafterPart;
+import nyonio.packagedbotania.block.BlockBreweryCrafter;
 import nyonio.packagedbotania.block.BlockManaPoolCrafter;
 import nyonio.packagedbotania.block.BlockRuneAltarCrafter;
 import nyonio.packagedbotania.block.BlockTerraPlateCrafter;
 import nyonio.packagedbotania.client.IModelRegister;
 import nyonio.packagedbotania.recipe.RecipeTypeAlfheimPortal;
 import nyonio.packagedbotania.recipe.RecipeTypeApothecary;
+import nyonio.packagedbotania.recipe.RecipeTypeBrewery;
 import nyonio.packagedbotania.recipe.RecipeTypeManaPool;
 import nyonio.packagedbotania.recipe.RecipeTypeManaPoolAlchemy;
 import nyonio.packagedbotania.recipe.RecipeTypeManaPoolConjuration;
@@ -23,6 +25,7 @@ import nyonio.packagedbotania.recipe.RecipeTypeRuneAltar;
 import nyonio.packagedbotania.recipe.RecipeTypeTerraPlate;
 import nyonio.packagedbotania.tile.TileAlfheimPortalCrafter;
 import nyonio.packagedbotania.tile.TileApothecaryCrafter;
+import nyonio.packagedbotania.tile.TileBreweryCrafter;
 import nyonio.packagedbotania.tile.TileManaPoolCrafter;
 import nyonio.packagedbotania.tile.TileRuneAltarCrafter;
 import nyonio.packagedbotania.tile.TileTerraPlateCrafter;
@@ -69,6 +72,7 @@ public class CommonEventHandler {
         registerBlock(BlockApothecaryCrafter.INSTANCE);
         registerBlock(BlockApothecaryCrafterPart.INSTANCE);
         registerBlock(BlockAlfheimPortalCrafter.INSTANCE);
+        registerBlock(BlockBreweryCrafter.INSTANCE);
     }
 
     protected void registerItems() {
@@ -77,6 +81,7 @@ public class CommonEventHandler {
         registerItem(BlockTerraPlateCrafter.ITEM_INSTANCE);
         registerItem(BlockApothecaryCrafter.ITEM_INSTANCE);
         registerItem(BlockAlfheimPortalCrafter.ITEM_INSTANCE);
+        registerItem(BlockBreweryCrafter.ITEM_INSTANCE);
     }
 
     protected void registerTileEntities() {
@@ -85,6 +90,7 @@ public class CommonEventHandler {
         GameRegistry.registerTileEntity(TileTerraPlateCrafter.class, BlockTerraPlateCrafter.INSTANCE.getRegistryName());
         GameRegistry.registerTileEntity(TileApothecaryCrafter.class, BlockApothecaryCrafter.INSTANCE.getRegistryName());
         GameRegistry.registerTileEntity(TileAlfheimPortalCrafter.class, BlockAlfheimPortalCrafter.INSTANCE.getRegistryName());
+        GameRegistry.registerTileEntity(TileBreweryCrafter.class, BlockBreweryCrafter.INSTANCE.getRegistryName());
     }
 
     protected void registerRecipeTypes() {
@@ -95,5 +101,6 @@ public class CommonEventHandler {
         RecipeTypeRegistry.registerRecipeType(RecipeTypeTerraPlate.INSTANCE);
         RecipeTypeRegistry.registerRecipeType(RecipeTypeApothecary.INSTANCE);
         RecipeTypeRegistry.registerRecipeType(RecipeTypeAlfheimPortal.INSTANCE);
+        RecipeTypeRegistry.registerRecipeType(RecipeTypeBrewery.INSTANCE);
     }
 }

@@ -27,7 +27,6 @@ import vazkii.botania.api.mana.IManaPool;
 import vazkii.botania.api.mana.spark.ISparkAttachable;
 import vazkii.botania.api.mana.spark.ISparkEntity;
 import vazkii.botania.api.mana.spark.SparkHelper;
-import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.core.handler.ModSounds;
 
 public class TileRuneAltarCrafter extends TileAE2Base implements ITickable, IPackageCraftingMachine, ISparkAttachable {

@@ -44,6 +44,8 @@ public class PackagedBotaniaJEIPlugin implements IModPlugin {
         registry.getRecipeTransferRegistry().addRecipeTransferHandler(
             new BotaniaTransferHandler(transferHelper), "botania.elvenTrade");
         registry.getRecipeTransferRegistry().addRecipeTransferHandler(
+            new BotaniaTransferHandler(transferHelper), "botania.brewery");
+        registry.getRecipeTransferRegistry().addRecipeTransferHandler(
             new BotaniaTransferHandler(transferHelper), "botaniatweaks.agglomeration");
     }
 
@@ -109,6 +111,8 @@ public class PackagedBotaniaJEIPlugin implements IModPlugin {
                     return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:apothecary"));
                 case "botania.elvenTrade":
                     return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:alfheim_portal"));
+                case "botania.brewery":
+                    return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:brewery"));
                 case "botaniatweaks.agglomeration":
                     return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:terra_plate"));
                 default:

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "LVL",
+        "LCL",
+        "LBL"
+    ],
+    "key": {
+        "L": {
+            "item": "botania:livingrock",
+            "data": 0
+        },
+        "V": {
+            "item": "botania:vial",
+            "data": 0
+        },
+        "C": {
+            "item": "packagedauto:me_package_component"
+        },
+        "B": {
+            "item": "botania:brewery",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "packaged_botania:brewery_crafter",
+        "count": 1
+    }
+}
