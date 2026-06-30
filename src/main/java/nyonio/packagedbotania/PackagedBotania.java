@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import nyonio.packagedbotania.block.BlockAlfheimPortalCrafter;
 import nyonio.packagedbotania.block.BlockApothecaryCrafter;
+import nyonio.packagedbotania.block.BlockBreweryCrafter;
 import nyonio.packagedbotania.block.BlockManaPoolCrafter;
 import nyonio.packagedbotania.block.BlockRuneAltarCrafter;
 import nyonio.packagedbotania.block.BlockTerraPlateCrafter;
@@ -29,6 +30,7 @@ public class PackagedBotania
     public static final BlockTerraPlateCrafter TERRA_PLATE_CRAFTER = BlockTerraPlateCrafter.INSTANCE;
     public static final BlockApothecaryCrafter APOTHECARY_CRAFTER = BlockApothecaryCrafter.INSTANCE;
     public static final BlockAlfheimPortalCrafter ALFHEIM_PORTAL_CRAFTER = BlockAlfheimPortalCrafter.INSTANCE;
+    public static final BlockBreweryCrafter BREWERY_CRAFTER = BlockBreweryCrafter.INSTANCE;
 
     @SidedProxy(
             clientSide = "nyonio.packagedbotania.client.event.ClientEventHandler",
