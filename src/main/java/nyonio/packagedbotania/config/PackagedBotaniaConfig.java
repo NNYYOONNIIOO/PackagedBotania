@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -13,6 +14,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import nyonio.packagedbotania.PackagedBotania;
+import vazkii.botania.common.block.ModBlocks;
 
 public class PackagedBotaniaConfig {
 
@@ -97,6 +99,11 @@ public class PackagedBotaniaConfig {
     }
 
     public static boolean isRuneAltarCatalyst(ItemStack stack) {
+        // Hard-coded fallback: directly check against Botania's livingrock block
+        Block livingrock = Block.getBlockFromName("botania:livingrock");
+        if(livingrock != null && stack.getItem() == Item.getItemFromBlock(livingrock) && stack.getMetadata() == 0) {
+            return true;
+        }
         for(ItemStack catalyst : runeAltarCatalysts) {
             if(stack.getItem() == catalyst.getItem() &&
                (catalyst.getMetadata() == Short.MAX_VALUE || stack.getMetadata() == catalyst.getMetadata())) {
@@ -117,7 +124,15 @@ public class PackagedBotaniaConfig {
     }
 
     public static ItemStack getRuneAltarJEICatalyst() {
-        return runeAltarCatalysts.isEmpty() ? ItemStack.EMPTY : runeAltarCatalysts.get(0).copy();
+        if(!runeAltarCatalysts.isEmpty()) {
+            return runeAltarCatalysts.get(0).copy();
+        }
+        // Hard-coded fallback: directly create ItemStack from Botania's livingrock block
+        Block livingrock = Block.getBlockFromName("botania:livingrock");
+        if(livingrock != null) {
+            return new ItemStack(livingrock, 1, 0);
+        }
+        return ItemStack.EMPTY;
     }
 
     public static ItemStack getApothecaryJEICatalyst() {

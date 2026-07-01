@@ -2,8 +2,8 @@
 {
   "modid": "packaged_botania",
   "name": "PackagedBotania",
-  "description": "封包植物魔法 - PackagedAuto与Botania的整合模组，添加封包魔力池、封包符文祭坛、封包泰拉凝聚板、封包花药台、封包植物酿造台",
-  "version": "1.1",
+  "description": "PackagedBotania is a mod that allows automated processing of Botania through packed recipes.",
+  "version": "1.2",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

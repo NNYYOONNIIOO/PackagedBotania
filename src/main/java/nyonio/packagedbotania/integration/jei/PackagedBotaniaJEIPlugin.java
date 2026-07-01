@@ -94,6 +94,12 @@ public class PackagedBotaniaJEIPlugin implements IModPlugin {
                         inv.stacks.set(i, ItemStack.EMPTY);
                     }
                 }
+                for(Int2ObjectMap.Entry<ItemStack> entry : map.int2ObjectEntrySet()) {
+                    int slot = entry.getIntKey();
+                    if(slot >= 0 && slot < 90) {
+                        inv.stacks.set(slot, entry.getValue().copy());
+                    }
+                }
                 inv.updateRecipeInfo(true);
                 container.setupSlots();
                 PackagedBotaniaPacketHandler.INSTANCE.sendToServer(new PacketSetRecipeWithType(map, targetType.getName()));

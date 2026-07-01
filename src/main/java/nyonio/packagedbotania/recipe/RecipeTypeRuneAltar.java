@@ -1,7 +1,9 @@
 package nyonio.packagedbotania.recipe;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -79,7 +81,10 @@ public class RecipeTypeRuneAltar implements IRecipeType {
         int[] slotArray = SLOTS.toIntArray();
         map.put(slotArray[0], PackagedBotaniaConfig.getRuneAltarJEICatalyst());
         int index = 1;
-        for(Map.Entry<Integer, ? extends IGuiIngredient<ItemStack>> entry : ingredients.entrySet()) {
+        // Sort by key to ensure ingredients are processed in JEI slot order
+        List<Map.Entry<Integer, ? extends IGuiIngredient<ItemStack>>> sortedEntries = new ArrayList<>(ingredients.entrySet());
+        sortedEntries.sort(Comparator.comparingInt(Map.Entry::getKey));
+        for(Map.Entry<Integer, ? extends IGuiIngredient<ItemStack>> entry : sortedEntries) {
             IGuiIngredient<ItemStack> ingredient = entry.getValue();
             if(ingredient.isInput() && index < 17) {
                 ItemStack displayed = ingredient.getDisplayedIngredient();
