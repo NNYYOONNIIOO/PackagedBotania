@@ -3,7 +3,7 @@
   "modid": "packaged_botania",
   "name": "PackagedBotania",
   "description": "PackagedBotania is a mod that allows automated processing of Botania through packed recipes.",
-  "version": "1.2",
+  "version": "1.3",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

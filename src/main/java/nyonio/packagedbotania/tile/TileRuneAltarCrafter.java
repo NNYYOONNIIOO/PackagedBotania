@@ -17,6 +17,8 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import nyonio.packagedbotania.block.BlockRuneAltarCrafter;
+import nyonio.packagedbotania.config.PackagedBotaniaConfig;
+import nyonio.packagedbotania.recipe.BotaniaCEuHelper;
 import nyonio.packagedbotania.recipe.IRecipeInfoRuneAltar;
 import thelm.packagedauto.api.IPackageCraftingMachine;
 import thelm.packagedauto.api.IRecipeInfo;
@@ -83,10 +85,7 @@ public class TileRuneAltarCrafter extends TileAE2Base implements ITickable, IPac
     @Override
     public void update() {
         if(!world.isRemote) {
-            if(firstTick) {
-                firstTick = false;
-                onReady();
-            }
+            ensureProxyReady();
             chargeEnergy();
             if(isWorking) {
                 if(energyStorage.extractEnergy(energyUsage, true) >= energyUsage ||
@@ -130,7 +129,7 @@ public class TileRuneAltarCrafter extends TileAE2Base implements ITickable, IPac
         }
         for(int i = 0; i < 17; i++) {
             ItemStack stack = inventory.stacks.get(i);
-            if(!stack.isEmpty() && stack.getItem() == vazkii.botania.common.item.ModItems.rune) {
+            if(!stack.isEmpty() && shouldRetainItem(stack)) {
                 ejectItemToNetwork(stack.copy());
             }
             inventory.stacks.set(i, ItemStack.EMPTY);
@@ -138,6 +137,16 @@ public class TileRuneAltarCrafter extends TileAE2Base implements ITickable, IPac
         inventory.stacks.set(17, currentRecipe.getOutput().copy());
         world.playSound(null, pos, ModSounds.runeAltarCraft, SoundCategory.BLOCKS, 1, 1);
         endProcess();
+    }
+
+    protected boolean shouldRetainItem(ItemStack stack) {
+        // Botania CEu: use its configurable retained items list
+        if(BotaniaCEuHelper.isLoaded()) {
+            return BotaniaCEuHelper.shouldRetainAfterCraft(stack);
+        }
+        // Original Botania: retain catalyst (livingrock) and runes
+        return PackagedBotaniaConfig.isRuneAltarCatalyst(stack) ||
+               stack.getItem() == vazkii.botania.common.item.ModItems.rune;
     }
 
     protected void endProcess() {

@@ -203,8 +203,16 @@ public class RecipeInfoTerraPlate implements IRecipeInfoTerraPlate {
     protected IBlockState readBlockState(NBTTagCompound nbt, String prefix) {
         String name = nbt.getString(prefix + "Block");
         int meta = nbt.getInteger(prefix + "Meta");
+        if(name.isEmpty()) {
+            return ModBlocks.livingrock.getDefaultState();
+        }
         net.minecraft.block.Block block = net.minecraft.block.Block.getBlockFromName(name);
         if(block == null) {
+            // If the block is not found (e.g. mod removed), return air for Replace fields
+            // to avoid accidentally replacing with livingrock
+            if(prefix.endsWith("Replace")) {
+                return Blocks.AIR.getDefaultState();
+            }
             return ModBlocks.livingrock.getDefaultState();
         }
         return block.getStateFromMeta(meta);

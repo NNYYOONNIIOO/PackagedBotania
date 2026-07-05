@@ -97,10 +97,7 @@ public class TileApothecaryCrafter extends TileAE2Base implements ITickable, IPa
     @Override
     public void update() {
         if(!world.isRemote) {
-            if(firstTick) {
-                firstTick = false;
-                onReady();
-            }
+            ensureProxyReady();
             chargeEnergy();
             if(isWorking) {
                 tickProcess();

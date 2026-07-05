@@ -39,9 +39,26 @@ public abstract class TileAE2Base extends TileBase implements IGridHost, IGridPr
 
     protected AENetworkProxy gridProxy;
     protected IActionSource actionSource;
-    protected boolean firstTick = true;
+    protected boolean proxyValidated = false;
+    protected boolean proxyReady = false;
 
     protected abstract ItemStack getStackRepresentation();
+
+    @Optional.Method(modid = "appliedenergistics2")
+    protected void ensureProxyReady() {
+        if(world == null || world.isRemote) return;
+        if(proxyReady) return;
+
+        if(!proxyValidated) {
+            getProxy().validate();
+            proxyValidated = true;
+        }
+        if(proxyValidated && !proxyReady) {
+            getProxy().onReady();
+            proxyReady = true;
+            world.notifyNeighborsOfStateChange(pos, getBlockType(), true);
+        }
+    }
 
     @Optional.Method(modid = "appliedenergistics2")
     protected ItemStack ejectItemToNetwork(ItemStack stack) {
@@ -120,13 +137,18 @@ public abstract class TileAE2Base extends TileBase implements IGridHost, IGridPr
     @Override
     public void validate() {
         super.validate();
+        proxyValidated = false;
+        proxyReady = false;
         this.getProxy().validate();
+        proxyValidated = true;
     }
 
     @Optional.Method(modid = "appliedenergistics2")
     @Override
     public void invalidate() {
         super.invalidate();
+        proxyValidated = false;
+        proxyReady = false;
         if(this.gridProxy != null) {
             this.gridProxy.invalidate();
         }
@@ -136,6 +158,8 @@ public abstract class TileAE2Base extends TileBase implements IGridHost, IGridPr
     @Override
     public void onChunkUnload() {
         super.onChunkUnload();
+        proxyValidated = false;
+        proxyReady = false;
         if(this.gridProxy != null) {
             this.gridProxy.onChunkUnload();
         }
@@ -182,7 +206,8 @@ public abstract class TileAE2Base extends TileBase implements IGridHost, IGridPr
     @Override
     public void readFromNBT(NBTTagCompound nbt) {
         super.readFromNBT(nbt);
-        firstTick = true;
+        proxyValidated = false;
+        proxyReady = false;
         getProxy().readFromNBT(nbt);
     }
 

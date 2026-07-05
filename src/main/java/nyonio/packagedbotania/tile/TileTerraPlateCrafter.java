@@ -3,6 +3,7 @@ package nyonio.packagedbotania.tile;
 import java.util.List;
 
 import com.google.common.base.Predicates;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.Entity;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -19,6 +21,7 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import nyonio.packagedbotania.block.BlockTerraPlateCrafter;
+import nyonio.packagedbotania.recipe.BotaniaTweaksHelper;
 import nyonio.packagedbotania.recipe.IRecipeInfoTerraPlate;
 import thelm.packagedauto.api.IPackageCraftingMachine;
 import thelm.packagedauto.api.IRecipeInfo;
@@ -84,10 +87,7 @@ public class TileTerraPlateCrafter extends TileAE2Base implements ITickable, IPa
     @Override
     public void update() {
         if(!world.isRemote) {
-            if(firstTick) {
-                firstTick = false;
-                onReady();
-            }
+            ensureProxyReady();
             chargeEnergy();
             if(isWorking) {
                 if(energyStorage.extractEnergy(energyUsage, true) >= energyUsage ||
@@ -179,18 +179,23 @@ public class TileTerraPlateCrafter extends TileAE2Base implements ITickable, IPa
         IBlockState cornerReplace = recipe.getMultiblockCornerReplace();
 
         if(centerReplace != null) {
-            world.setBlockState(pos.down(), centerReplace);
+            replaceBlock(pos.down(), centerReplace);
         }
         if(edgeReplace != null) {
             for(EnumFacing horiz : EnumFacing.HORIZONTALS) {
-                world.setBlockState(pos.down().offset(horiz), edgeReplace);
+                replaceBlock(pos.down().offset(horiz), edgeReplace);
             }
         }
         if(cornerReplace != null) {
             for(EnumFacing horiz : EnumFacing.HORIZONTALS) {
-                world.setBlockState(pos.down().offset(horiz).offset(horiz.rotateY()), cornerReplace);
+                replaceBlock(pos.down().offset(horiz).offset(horiz.rotateY()), cornerReplace);
             }
         }
+    }
+
+    protected void replaceBlock(BlockPos target, IBlockState replace) {
+        world.playEvent(2001, target, Block.getStateId(world.getBlockState(target)));
+        world.setBlockState(target, replace, 3);
     }
 
     protected void endProcess() {
@@ -231,6 +236,16 @@ public class TileTerraPlateCrafter extends TileAE2Base implements ITickable, IPa
     public boolean acceptPackage(IRecipeInfo recipeInfo, List<ItemStack> stacks, EnumFacing facing) {
         if(!isBusy() && recipeInfo.isValid() && recipeInfo instanceof IRecipeInfoTerraPlate) {
             IRecipeInfoTerraPlate terraRecipe = (IRecipeInfoTerraPlate)recipeInfo;
+            // If Replace fields are missing but BotaniaTweaks is loaded, re-fetch them
+            if(terraRecipe.getMultiblockCenterReplace() == null &&
+               terraRecipe.getMultiblockEdgeReplace() == null &&
+               terraRecipe.getMultiblockCornerReplace() == null &&
+               BotaniaTweaksHelper.isLoaded()) {
+                IRecipeInfoTerraPlate btRecipe = BotaniaTweaksHelper.findRecipe(terraRecipe.getInputs());
+                if(btRecipe != null) {
+                    terraRecipe = btRecipe;
+                }
+            }
             if(hasValidPlatform(terraRecipe)) {
                 isWorking = true;
                 currentRecipe = terraRecipe;

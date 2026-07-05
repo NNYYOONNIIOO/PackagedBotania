@@ -86,10 +86,7 @@ public class TileBreweryCrafter extends TileAE2Base implements ITickable, IPacka
     @Override
     public void update() {
         if(!world.isRemote) {
-            if(firstTick) {
-                firstTick = false;
-                onReady();
-            }
+            ensureProxyReady();
             chargeEnergy();
             if(isWorking) {
                 if(energyStorage.extractEnergy(energyUsage, true) >= energyUsage ||
