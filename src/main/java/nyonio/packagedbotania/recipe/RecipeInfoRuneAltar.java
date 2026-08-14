@@ -70,7 +70,12 @@ public class RecipeInfoRuneAltar implements IRecipeInfoRuneAltar {
         if(!isValid()) {
             return Collections.emptyList();
         }
-        return Collections.singletonList(new PackagePatternRuneAltar(this, 0));
+        List<IPackagePattern> patterns = new ArrayList<>();
+        int inputCount = inputs.size() + 1;
+        for(int i = 0; i * 9 < inputCount; i++) {
+            patterns.add(new PackagePatternRuneAltar(this, i));
+        }
+        return patterns;
     }
 
     @Override
@@ -217,10 +222,12 @@ public class RecipeInfoRuneAltar implements IRecipeInfoRuneAltar {
 
         @Override
         public List<ItemStack> getInputs() {
-            List<ItemStack> list = new ArrayList<>();
-            list.add(PackagedBotaniaConfig.getRuneAltarJEICatalyst());
-            list.addAll(recipeInfo.inputs);
-            return list;
+            List<ItemStack> allInputs = new ArrayList<>();
+            allInputs.add(PackagedBotaniaConfig.getRuneAltarJEICatalyst());
+            allInputs.addAll(recipeInfo.inputs);
+            int start = index * 9;
+            int end = Math.min(start + 9, allInputs.size());
+            return new ArrayList<>(allInputs.subList(start, end));
         }
 
         @Override
