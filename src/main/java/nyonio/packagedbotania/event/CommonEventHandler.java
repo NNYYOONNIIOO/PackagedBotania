@@ -14,6 +14,7 @@ import nyonio.packagedbotania.block.BlockApothecaryCrafterPart;
 import nyonio.packagedbotania.block.BlockBreweryCrafter;
 import nyonio.packagedbotania.block.BlockManaPoolCrafter;
 import nyonio.packagedbotania.block.BlockManaInfuserCrafter;
+import nyonio.packagedbotania.block.BlockPureDaisyCrafter;
 import nyonio.packagedbotania.block.BlockRuneAltarCrafter;
 import nyonio.packagedbotania.block.BlockTerraPlateCrafter;
 import nyonio.packagedbotania.client.IModelRegister;
@@ -24,6 +25,7 @@ import nyonio.packagedbotania.recipe.RecipeTypeManaPool;
 import nyonio.packagedbotania.recipe.RecipeTypeManaPoolAlchemy;
 import nyonio.packagedbotania.recipe.RecipeTypeManaPoolConjuration;
 import nyonio.packagedbotania.recipe.RecipeTypeManaInfuser;
+import nyonio.packagedbotania.recipe.RecipeTypePureDaisy;
 import nyonio.packagedbotania.recipe.RecipeTypeRuneAltar;
 import nyonio.packagedbotania.recipe.RecipeTypeTerraPlate;
 import nyonio.packagedbotania.tile.TileAlfheimPortalCrafter;
@@ -31,6 +33,7 @@ import nyonio.packagedbotania.tile.TileApothecaryCrafter;
 import nyonio.packagedbotania.tile.TileBreweryCrafter;
 import nyonio.packagedbotania.tile.TileManaPoolCrafter;
 import nyonio.packagedbotania.tile.TileManaInfuserCrafter;
+import nyonio.packagedbotania.tile.TilePureDaisyCrafter;
 import nyonio.packagedbotania.tile.TileRuneAltarCrafter;
 import nyonio.packagedbotania.tile.TileTerraPlateCrafter;
 import nyonio.packagedbotania.network.PackagedBotaniaPacketHandler;
@@ -77,6 +80,7 @@ public class CommonEventHandler {
         registerBlock(BlockApothecaryCrafterPart.INSTANCE);
         registerBlock(BlockAlfheimPortalCrafter.INSTANCE);
         registerBlock(BlockBreweryCrafter.INSTANCE);
+        registerBlock(BlockPureDaisyCrafter.INSTANCE);
         if(Loader.isModLoaded("mythicbotany")) {
             registerBlock(BlockManaInfuserCrafter.INSTANCE);
         }
@@ -89,6 +93,7 @@ public class CommonEventHandler {
         registerItem(BlockApothecaryCrafter.ITEM_INSTANCE);
         registerItem(BlockAlfheimPortalCrafter.ITEM_INSTANCE);
         registerItem(BlockBreweryCrafter.ITEM_INSTANCE);
+        registerItem(BlockPureDaisyCrafter.ITEM_INSTANCE);
         if(Loader.isModLoaded("mythicbotany")) {
             registerItem(BlockManaInfuserCrafter.ITEM_INSTANCE);
         }
@@ -101,6 +106,7 @@ public class CommonEventHandler {
         GameRegistry.registerTileEntity(TileApothecaryCrafter.class, BlockApothecaryCrafter.INSTANCE.getRegistryName());
         GameRegistry.registerTileEntity(TileAlfheimPortalCrafter.class, BlockAlfheimPortalCrafter.INSTANCE.getRegistryName());
         GameRegistry.registerTileEntity(TileBreweryCrafter.class, BlockBreweryCrafter.INSTANCE.getRegistryName());
+        GameRegistry.registerTileEntity(TilePureDaisyCrafter.class, BlockPureDaisyCrafter.INSTANCE.getRegistryName());
         if(Loader.isModLoaded("mythicbotany")) {
             GameRegistry.registerTileEntity(TileManaInfuserCrafter.class, BlockManaInfuserCrafter.INSTANCE.getRegistryName());
         }
@@ -115,6 +121,7 @@ public class CommonEventHandler {
         RecipeTypeRegistry.registerRecipeType(RecipeTypeApothecary.INSTANCE);
         RecipeTypeRegistry.registerRecipeType(RecipeTypeAlfheimPortal.INSTANCE);
         RecipeTypeRegistry.registerRecipeType(RecipeTypeBrewery.INSTANCE);
+        RecipeTypeRegistry.registerRecipeType(RecipeTypePureDaisy.INSTANCE);
         if(Loader.isModLoaded("mythicbotany")) {
             RecipeTypeRegistry.registerRecipeType(RecipeTypeManaInfuser.INSTANCE);
         }

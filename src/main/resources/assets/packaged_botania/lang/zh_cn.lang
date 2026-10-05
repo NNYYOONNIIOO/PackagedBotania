@@ -6,6 +6,7 @@ tile.packaged_botania.apothecary_crafter_part.name=封包花药台
 tile.packaged_botania.alfheim_portal_crafter.name=封包精灵门
 tile.packaged_botania.brewery_crafter.name=封包植物酿造台
 tile.packaged_botania.mana_infuser_crafter.name=封包精灵凝聚板
+tile.packaged_botania.pure_daisy_crafter.name=封包白雏菊
 
 recipe.packaged_botania.mana_pool=魔力池
 recipe.packaged_botania.mana_pool.short=魔力池
@@ -25,5 +26,7 @@ recipe.packaged_botania.brewery=植物酿造台
 recipe.packaged_botania.brewery.short=植物酿造台
 recipe.packaged_botania.mana_infuser=精灵凝聚板
 recipe.packaged_botania.mana_infuser.short=精灵凝聚板
+recipe.packaged_botania.pure_daisy=白雏菊
+recipe.packaged_botania.pure_daisy.short=白雏菊
 
 itemGroup.packaged_botania=封包植物魔法

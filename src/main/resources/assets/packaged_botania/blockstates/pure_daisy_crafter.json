@@ -1,0 +1,6 @@
+{
+    "multipart": [
+        { "apply": { "model": "packaged_botania:packaged_pure_daisy" } },
+        { "apply": { "model": "packaged_botania:pure_daisy_flower" } }
+    ]
+}

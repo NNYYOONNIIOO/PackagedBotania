@@ -6,6 +6,7 @@ tile.packaged_botania.apothecary_crafter_part.name=Packaged Apothecary
 tile.packaged_botania.alfheim_portal_crafter.name=Packaged Alfheim Portal
 tile.packaged_botania.brewery_crafter.name=Packaged Brewery
 tile.packaged_botania.mana_infuser_crafter.name=Packaged Mana Infuser
+tile.packaged_botania.pure_daisy_crafter.name=Packaged Pure Daisy
 
 recipe.packaged_botania.mana_pool=Mana Pool
 recipe.packaged_botania.mana_pool.short=Mana Pool
@@ -21,5 +22,7 @@ recipe.packaged_botania.brewery=Brewery
 recipe.packaged_botania.brewery.short=Brewery
 recipe.packaged_botania.mana_infuser=Mana Infuser
 recipe.packaged_botania.mana_infuser.short=Mana Infuser
+recipe.packaged_botania.pure_daisy=Pure Daisy
+recipe.packaged_botania.pure_daisy.short=Pure Daisy
 
 itemGroup.packaged_botania=Packaged Botania

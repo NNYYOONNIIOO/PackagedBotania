@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "LPL",
+        "PCP",
+        "LPL"
+    ],
+    "key": {
+        "L": {
+            "item": "botania:livingrock",
+            "data": 0
+        },
+        "P": {
+            "item": "botania:specialflower",
+            "data": 0,
+            "nbt": "{type:\"puredaisy\"}"
+        },
+        "C": {
+            "item": "packagedauto:me_package_component"
+        }
+    },
+    "result": {
+        "item": "packaged_botania:pure_daisy_crafter",
+        "count": 1
+    }
+}

@@ -46,6 +46,8 @@ public class PackagedBotaniaJEIPlugin implements IModPlugin {
         registry.getRecipeTransferRegistry().addRecipeTransferHandler(
             new BotaniaTransferHandler(transferHelper), "botania.brewery");
         registry.getRecipeTransferRegistry().addRecipeTransferHandler(
+            new BotaniaTransferHandler(transferHelper), "botania.pureDaisy");
+        registry.getRecipeTransferRegistry().addRecipeTransferHandler(
             new BotaniaTransferHandler(transferHelper), "botaniatweaks.agglomeration");
         registry.getRecipeTransferRegistry().addRecipeTransferHandler(
             new BotaniaTransferHandler(transferHelper), "mythicbotany:infuser");
@@ -121,6 +123,8 @@ public class PackagedBotaniaJEIPlugin implements IModPlugin {
                     return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:alfheim_portal"));
                 case "botania.brewery":
                     return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:brewery"));
+                case "botania.pureDaisy":
+                    return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:pure_daisy"));
                 case "botaniatweaks.agglomeration":
                     return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:terra_plate"));
                 case "mythicbotany:infuser":
