@@ -53,6 +53,8 @@ dependencies {
     implementation fg.deobf("curse.maven:applied-energistics-2-223794:2747063")
     implementation fg.deobf("curse.maven:jei-238222:5846804")
     implementation fg.deobf("curse.maven:botania-tweaks-295114:3092102")
+    // Optional integration with the linked MythicBotany 1.12.2 workspace.
+    compileOnly fg.deobf(files('../../2026-08-22/new-chat/build/libs/mythicbotany_legacy-1.0.3.jar'))
 }
 
 jar {

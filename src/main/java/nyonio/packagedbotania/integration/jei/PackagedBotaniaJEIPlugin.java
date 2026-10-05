@@ -47,6 +47,8 @@ public class PackagedBotaniaJEIPlugin implements IModPlugin {
             new BotaniaTransferHandler(transferHelper), "botania.brewery");
         registry.getRecipeTransferRegistry().addRecipeTransferHandler(
             new BotaniaTransferHandler(transferHelper), "botaniatweaks.agglomeration");
+        registry.getRecipeTransferRegistry().addRecipeTransferHandler(
+            new BotaniaTransferHandler(transferHelper), "mythicbotany:infuser");
     }
 
     public static class BotaniaTransferHandler implements IRecipeTransferHandler<ContainerEncoder> {
@@ -121,6 +123,8 @@ public class PackagedBotaniaJEIPlugin implements IModPlugin {
                     return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:brewery"));
                 case "botaniatweaks.agglomeration":
                     return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:terra_plate"));
+                case "mythicbotany:infuser":
+                    return RecipeTypeRegistry.getRecipeType(new ResourceLocation("packaged_botania:mana_infuser"));
                 default:
                     return null;
             }

@@ -1,0 +1,9 @@
+{
+    "parent": "packaged_botania:block/terra_plate",
+    "textures": {
+        "0": "mythicbotany:blocks/mana_infuser_side",
+        "2": "mythicbotany:blocks/mana_infuser_top",
+        "3": "mythicbotany:blocks/mana_infuser_bottom",
+        "particle": "mythicbotany:blocks/mana_infuser_side"
+    }
+}
