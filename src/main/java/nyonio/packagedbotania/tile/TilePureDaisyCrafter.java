@@ -96,6 +96,7 @@ public class TilePureDaisyCrafter extends TileAE2Base implements ITickable, IPac
                 if(fromStorage < energyUsage) {
                     extractEnergyFromNetwork(energyUsage - fromStorage, false);
                 }
+                consumeManaForSpeedup();
                 remainingTicks--;
                 if(remainingTicks <= 0) {
                     finishProcess();
@@ -201,10 +202,19 @@ public class TilePureDaisyCrafter extends TileAE2Base implements ITickable, IPac
     }
 
     protected int calculateWorkTicks() {
-        int speedupSeconds = storedMana / MANA_PER_SPEEDUP_SECOND;
-        storedMana %= MANA_PER_SPEEDUP_SECOND;
-        long reducedTicks = (long)speedupSeconds * 20L;
-        return (int)Math.max(1L, BASE_WORK_TICKS - reducedTicks);
+        return BASE_WORK_TICKS;
+    }
+
+    protected void consumeManaForSpeedup() {
+        if(remainingTicks <= 1 || storedMana < MANA_PER_SPEEDUP_SECOND) {
+            return;
+        }
+
+        int availableSpeedupSeconds = storedMana / MANA_PER_SPEEDUP_SECOND;
+        int requestedSpeedupSeconds = (remainingTicks + 19) / 20;
+        int speedupSeconds = Math.min(availableSpeedupSeconds, requestedSpeedupSeconds);
+        storedMana -= speedupSeconds * MANA_PER_SPEEDUP_SECOND;
+        remainingTicks = Math.max(1, remainingTicks - speedupSeconds * 20);
     }
 
     protected boolean hasOutputItems() {
