@@ -8,26 +8,25 @@
     "key": {
         "R": {
             "item": "botania:rune",
-            "data": 0
+            "data": 4
         },
         "E": {
-            "item": "botania:rune",
-            "data": 8
+            "item": "mythicbotany:asgard_rune"
         },
         "M": {
             "item": "botania:rune",
-            "data": 1
+            "data": 5
         },
         "S": {
             "item": "botania:rune",
-            "data": 2
+            "data": 6
         },
         "C": {
             "item": "packagedauto:me_package_component"
         },
         "N": {
             "item": "botania:rune",
-            "data": 3
+            "data": 7
         },
         "L": {
             "item": "minecraft:gold_block",
