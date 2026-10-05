@@ -1,6 +1,28 @@
 {
-    "multipart": [
-        { "apply": { "model": "packaged_botania:packaged_pure_daisy" } },
-        { "apply": { "model": "packaged_botania:pure_daisy_flower" } }
-    ]
+    "forge_marker": 1,
+    "variants": {
+        "normal": [{
+            "model": "packaged_botania:packaged_pure_daisy",
+            "submodel": {
+                "flower": {
+                    "model": "botania:shapes/cross_tinted",
+                    "textures": {
+                        "cross": "botania:blocks/flower_misc_pure_daisy"
+                    }
+                }
+            }
+        }],
+        "inventory": [{
+            "model": "packaged_botania:packaged_pure_daisy",
+            "transform": "forge:default-block",
+            "submodel": {
+                "flower": {
+                    "model": "botania:shapes/cross_tinted",
+                    "textures": {
+                        "cross": "botania:blocks/flower_misc_pure_daisy"
+                    }
+                }
+            }
+        }]
+    }
 }

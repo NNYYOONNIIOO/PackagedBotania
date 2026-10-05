@@ -6,6 +6,7 @@
 		"1": "botania:blocks/storage0",
 		"2": "botania:blocks/altgrass10",
 		"3": "botania:blocks/altgrass11",
+		"4": "botania:blocks/azulejo_3",
 		"particle": "botania:blocks/crate_open_bottom"
 	},
 	"elements": [
@@ -121,7 +122,7 @@
 				"south": {"uv": [0, 0, 12, 1], "texture": "#missing"},
 				"west": {"uv": [0, 0, 12, 1], "texture": "#missing"},
 				"up": {"uv": [0, 0, 12, 12], "texture": "#0"},
-				"down": {"uv": [0, 0, 12, 12], "texture": "#missing"}
+				"down": {"uv": [0, 0, 16, 16], "texture": "#4"}
 			}
 		},
 		{
