@@ -1,22 +1,33 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "LPL",
-        "PCP",
-        "LPL"
+        "GPG",
+        "OCO",
+        "BSB"
     ],
     "key": {
-        "L": {
-            "item": "botania:livingrock",
-            "data": 0
+        "G": {
+            "item": "botania:grassseeds",
+            "data": 8
         },
         "P": {
             "item": "botania:specialflower",
             "data": 0,
             "nbt": "{type:\"puredaisy\"}"
         },
+        "O": {
+            "item": "botania:opencrate",
+            "data": 0
+        },
         "C": {
             "item": "packagedauto:me_package_component"
+        },
+        "B": {
+            "item": "botania:custombrick",
+            "data": 6
+        },
+        "S": {
+            "item": "botania:storage"
         }
     },
     "result": {
