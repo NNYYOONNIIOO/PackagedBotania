@@ -11,9 +11,12 @@
             "data": 8
         },
         "P": {
+            "type": "minecraft:item_nbt",
             "item": "botania:specialflower",
             "data": 0,
-            "nbt": "{type:\"puredaisy\"}"
+            "nbt": {
+                "type": "puredaisy"
+            }
         },
         "O": {
             "item": "botania:opencrate",
@@ -27,7 +30,8 @@
             "data": 6
         },
         "S": {
-            "item": "botania:storage"
+            "item": "botania:storage",
+            "data": 0
         }
     },
     "result": {
