@@ -20,7 +20,7 @@ public class PackagedBotania
 {
     public static final String MODID = "packaged_botania";
     public static final String NAME = "PackagedBotania";
-    public static final String VERSION = "1.5";
+    public static final String VERSION = "1.6";
     public static final String DEPENDENCIES = "required-after:botania;required-after:packagedauto;after:botania_tweaks;after:mythicbotany";
 
     public static Logger logger;
