@@ -49,7 +49,23 @@ public class RecipeInfoPureDaisy implements IRecipeInfoPureDaisy {
 
     @Override
     public boolean isValid() {
-        return !input.isEmpty() && !output.isEmpty();
+        if(input.isEmpty() || output.isEmpty()) {
+            return false;
+        }
+        if(input.getItemDamage() != OreDictionary.WILDCARD_VALUE) {
+            return true;
+        }
+
+        // A wildcard input cannot be packaged because PackagedAuto packs concrete stacks.
+        // Resolve it to one real variant while preserving the recipe's output.
+        for(ItemStack stack : resolveVariants(recipe == null ? null : recipe.getInput())) {
+            if(stack != null && !stack.isEmpty() && stack.getItemDamage() != OreDictionary.WILDCARD_VALUE) {
+                input = stack.copy();
+                input.setCount(1);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -85,7 +101,8 @@ public class RecipeInfoPureDaisy implements IRecipeInfoPureDaisy {
             if(matchesInput(recipe.getInput(), candidate)) {
                 RecipeInfoPureDaisy found = new RecipeInfoPureDaisy().setRecipe(recipe);
                 if(found.isValid()) {
-                    this.input = found.input;
+                    this.input = candidate.copy();
+                    this.input.setCount(1);
                     this.output = found.output;
                     this.recipe = recipe;
                     return;
@@ -132,6 +149,14 @@ public class RecipeInfoPureDaisy implements IRecipeInfoPureDaisy {
     @Override
     public int hashCode() {
         return input.hashCode() * 31 + output.hashCode();
+    }
+
+    protected static List<ItemStack> resolveVariants(Object input) {
+        if(input instanceof String) {
+            return OreDictionary.getOres((String)input, false);
+        }
+        ItemStack resolved = resolveInput(input);
+        return resolved.isEmpty() ? Collections.emptyList() : Collections.singletonList(resolved);
     }
 
     protected static ItemStack resolveInput(Object input) {
