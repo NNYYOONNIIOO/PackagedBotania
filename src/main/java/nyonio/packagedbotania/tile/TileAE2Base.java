@@ -27,7 +27,9 @@ import appeng.me.helpers.MachineSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Optional;
+import nyonio.packagedbotania.integration.botaniaapplie.BotaniaApplieManaIntegration;
 import thelm.packagedauto.tile.TileBase;
 
 @Optional.InterfaceList({
@@ -131,6 +133,32 @@ public abstract class TileAE2Base extends TileBase implements IGridHost, IGridPr
         } catch(Exception e) {
             return 0;
         }
+    }
+
+    protected int extractManaFromNetwork(int maxExtract, boolean simulate) {
+        if(maxExtract <= 0 || !isNetworkConnected() || !Loader.isModLoaded("botania_applie")) {
+            return 0;
+        }
+        try {
+            IGrid grid = gridProxy.getNode().getGrid();
+            return BotaniaApplieManaIntegration.extractMana(grid, actionSource, maxExtract, simulate);
+        } catch(Throwable ignored) {
+            return 0;
+        }
+    }
+
+    protected int fillManaFromNetwork(int currentMana, int requiredMana) {
+        if(requiredMana <= 0 || currentMana >= requiredMana) {
+            return currentMana;
+        }
+
+        int extracted = extractManaFromNetwork(requiredMana - currentMana, false);
+        if(extracted <= 0) {
+            return currentMana;
+        }
+
+        markDirty();
+        return currentMana + extracted;
     }
 
     @Optional.Method(modid = "appliedenergistics2")

@@ -3,7 +3,7 @@
   "modid": "packaged_botania",
   "name": "PackagedBotania",
   "description": "PackagedBotania is a mod that allows automated processing of Botania through packed recipes.",
-  "version": "1.6",
+  "version": "1.7",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
@@ -11,6 +11,6 @@
   "credits": "Thanks to Vazkii for Botania and to TheLMiffy1111 for PackagedAuto",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": ["required-after:botania;required-after:packagedauto;after:appliedenergistics2"]
+  "dependencies": ["required-after:botania;required-after:packagedauto;after:appliedenergistics2;after:botania_applie"]
 }
 ]

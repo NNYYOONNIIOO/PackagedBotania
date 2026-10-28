@@ -89,7 +89,7 @@ public class TilePureDaisyCrafter extends TileAE2Base implements ITickable, IPac
         ensureProxyReady();
         chargeEnergy();
         if(isWorking) {
-            requestManaFromSparks();
+            requestMana();
             if(energyStorage.extractEnergy(energyUsage, true) >= energyUsage
                     || extractEnergyFromNetwork(energyUsage, true) >= energyUsage) {
                 int fromStorage = energyStorage.extractEnergy(energyUsage, false);
@@ -106,6 +106,25 @@ public class TilePureDaisyCrafter extends TileAE2Base implements ITickable, IPac
 
         if(world.getTotalWorldTime() % 8 == 0) {
             ejectItems();
+        }
+    }
+
+    protected void requestMana() {
+        if(!isWorking) {
+            return;
+        }
+
+        int requested = getAvailableSpaceForMana();
+        if(requested > 0) {
+            int extracted = extractManaFromNetwork(requested, false);
+            if(extracted > 0) {
+                storedMana += extracted;
+                markDirty();
+            }
+        }
+
+        if(getAvailableSpaceForMana() > 0) {
+            requestManaFromSparks();
         }
     }
 

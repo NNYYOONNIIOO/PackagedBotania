@@ -95,6 +95,7 @@ public class TileManaPoolCrafter extends TileAE2Base implements ITickable, IPack
                     if(fromStorage < energyUsage) {
                         fromAE2 = extractEnergyFromNetwork(energyUsage - fromStorage, false);
                     }
+                    mana = fillManaFromNetwork(mana, totalManaCost);
                     requestManaFromSparks();
                 }
                 if(mana >= totalManaCost) {

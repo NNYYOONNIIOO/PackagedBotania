@@ -94,6 +94,7 @@ public class TileRuneAltarCrafter extends TileAE2Base implements ITickable, IPac
                     if(fromStorage < energyUsage) {
                         extractEnergyFromNetwork(energyUsage - fromStorage, false);
                     }
+                    mana = fillManaFromNetwork(mana, totalManaCost);
                     requestManaFromSparks();
                 }
                 if(mana >= totalManaCost) {

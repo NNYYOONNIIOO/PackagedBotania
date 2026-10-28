@@ -96,6 +96,7 @@ public class TileTerraPlateCrafter extends TileAE2Base implements ITickable, IPa
                     if(fromStorage < energyUsage) {
                         extractEnergyFromNetwork(energyUsage - fromStorage, false);
                     }
+                    mana = fillManaFromNetwork(mana, totalManaCost);
                     requestManaFromSparks();
                 }
                 if(mana >= totalManaCost) {
